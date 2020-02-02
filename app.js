@@ -1,14 +1,16 @@
 class App {
     constructor() {
-        this.addEventListeners
         this.$form = document.querySelector('#form')
+        this.$noteTitle = document.querySelector('#note-title')
+        this.$formButtons = document.querySelector('#form-buttons');
+        this.addEventListeners()
         
     }
 
 
     addEventListeners(){
         document.body.addEventListener('click', event => {
-            handleFormClick(event)
+            this.handleFormClick(event)
         })
     }
 
@@ -16,14 +18,20 @@ class App {
         const isFormClicked = this.$form.contains(event.target)
 
         if(isFormClicked) {
-            openForm()
+            this.openForm()
         }else {
-            closeForm()
+            this.closeForm()
         }
     }
 
     openForm() {
+        this.$noteTitle.style.display = 'block'
+        this.$formButtons.style.display = 'block'
+    }
 
+    closeForm(){
+        this.$noteTitle.style.display = 'none'
+        this.$formButtons.style.display = 'none'
     }
 
     
